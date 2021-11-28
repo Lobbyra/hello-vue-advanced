@@ -1,0 +1,19 @@
+<html>
+<template>
+    <v-app id="inspire">
+        <div class="elem">
+            <v-select filled label="Selection de la personne" :items="personList" v-model="personSelect"></v-select>
+            <v-select filled label="Selection de l'année" :items="yearList" v-model="yearSelect"></v-select>
+            <v-select filled label="Selection du mois" :items="monthList" v-model="monthSelect"></v-select>
+        </div>
+        <div class="elem">
+            <v-data-table :headers="headers"
+            :items="data"
+            :items-per-page="10"
+            class="elevation-1">
+            </v-data-table>
+        </div>
+    </v-app>
+</template>
+
+</html>

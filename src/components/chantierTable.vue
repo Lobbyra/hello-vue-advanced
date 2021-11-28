@@ -1,12 +1,18 @@
-<template src="./acceuil.html"></template>
+<template src="./chantierTable.html"></template>
 
 <script>
 export default {
-  name: "accueil",
+  name: "chantierTable",
 
    data: () => ({
+    search: '',
+    yearsItems: [
+           2018, 2019, 2020, 2021, 2022, 2023
+       ],
+    yearSelect: 2021,
     dialog: false,
     dialogDelete: false,
+    items: ['Terminé', 'En cours'],
     headers: [
       {
         text: 'Nom du chantier',
@@ -26,14 +32,14 @@ export default {
       calories: 0,
       estimation: 0,
       real: 0,
-      state: 0,
+      state: "En cours",
     },
     defaultItem: {
       name: '',
       calories: 0,
       estimation: 0,
       real: 0,
-      state: 0,
+      state: "En cours",
     },
   }),
 
@@ -64,72 +70,80 @@ export default {
           calories: 159,
           estimation: 6.0,
           real: 24,
-          state: true,
+          state: "En cours",
         },
         {
           name: 'ZOBRIST-MEUCON',
           calories: 237,
           estimation: 9.0,
           real: 37,
-          state: false,
+          state: "En cours",
         },
         {
           name: 'LOFFICAL - BELZ',
           calories: 262,
           estimation: 16.0,
           real: 23,
-          state: false,
+          state: "En cours",
         },
         {
           name: 'SCI TREMELIERE - PLOUHINEC',
           calories: 305,
           estimation: 3.7,
           real: 67,
-          state: false,
+          state: "Terminé",
         },
         {
           name: 'PERRIER - ETEL',
           calories: 356,
           estimation: 16.0,
           real: 49,
-          state: true,
+          state: "Terminé",
         },
         {
           name: 'JAN - BELZ',
           calories: 375,
           estimation: 0.0,
           real: 94,
-          state: false,
+          state: "En cours",
         },
         {
           name: 'NICOD - ERDEVEN',
           calories: 392,
           estimation: 0.2,
           real: 98,
-          state: false,
+          state: "En cours",
         },
         {
           name: 'MONNIER - PLUVIGNER',
           calories: 408,
           estimation: 3.2,
           real: 87,
-          state: true,
+          state: "Terminé",
         },
         {
           name: 'DEBOIS - BELZ',
           calories: 452,
           estimation: 25.0,
           real: 51,
-          state: false,
+          state: "En cours",
         },
         {
           name: 'CHATARD - PLOUHINEC',
           calories: 518,
           estimation: 26.0,
           real: 65,
-          state: true,
+          state: "En cours",
         },
       ]
+    },
+    filterContent (value, search) {
+        console.log("Value " + value);
+        console.log("search" + search);
+      return value != null &&
+        search != null &&
+        typeof value === 'string' &&
+        value.toString().indexOf(search) !== -1
     },
     editItem (item) {
       this.editedIndex = this.desserts.indexOf(item)
@@ -172,10 +186,19 @@ export default {
       }
       this.close()
     },
+
   },
 
 };
 </script>
 
 <style scoped>
+
+#inspire {
+    padding: 50px;
+}
+
+.v-data-table {
+}
+
 </style>

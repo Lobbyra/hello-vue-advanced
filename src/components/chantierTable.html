@@ -1,19 +1,25 @@
 <html>
 <template>
     <v-app id="inspire">
-        <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
+        <v-select filled label="Année" :items="yearsItems" v-model="yearSelect"></v-select>
+        <v-data-table :headers="headers" :items="desserts" sort-by="calories" :search="search" :custom-filter="filterContent" class="elevation-1">
             <template v-slot:item.state="{ item }">
-                <v-checkbox v-model="item.state"></v-checkbox>
+                <v-select :items="items" v-model="item.state"></v-select>
             </template>
             <template v-slot:top>
                 <v-toolbar flat>
-                    <v-toolbar-title>Listes des chantiers</v-toolbar-title>
+                    <v-toolbar-title>Liste des chantiers</v-toolbar-title>
                     <v-divider class="mx-4" inset vertical></v-divider>
                     <v-spacer></v-spacer>
+                    <v-text-field
+                        v-model="search"
+                        label="Recherche de chantier"
+                        class="mx-4"
+                    ></v-text-field>
                     <v-dialog v-model="dialog" max-width="500px">
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                                Nouveau chantier
+                                <span v-bind:style="{ color: '#424242' }">Nouveau chantier</span>
                             </v-btn>
                         </template>
                         <v-card>

@@ -1,0 +1,69 @@
+<html>
+<template>
+    <v-app id="inspire">
+        <div class="elem">
+            <v-select filled label="Année" :items="items" v-model="yearSelect"></v-select>
+        </div>
+        <div class="elem">
+            <v-select filled label="Selection de la personne" :items="personList" v-model="personSelect"></v-select>
+            <v-select filled label="Selection du client" :items="clientList" v-model="clientSelect"></v-select>
+            <v-select filled label="Raison de l'absence" :items="missList" v-model="missSelect"></v-select>
+        </div>
+        <div class="elem">
+            <div class="float-container">
+                <div class="float-child">
+                    <span><v-select class="side" outlined label="Heures" :items="hourList" v-model="hourSelected"></v-select></span>
+                </div>
+                <div class="float-child">
+                    <span><v-select class="side" outlined label="Minutes" :items="minuteList" v-model="minuteSelected"></v-select></span>
+                </div>
+            </div>
+            <div class="float-container">
+                <div class="float-child">
+                    <span><v-select class="side" outlined label="Heures" :items="hourList" v-model="hour2Selected"></v-select></span>
+                </div>
+                <div class="float-child">
+                    <span><v-select class="side" outlined label="Minutes" :items="minuteList" v-model="minute2Selected"></v-select></span>
+                </div>
+            </div>
+            <div class="float-container">
+                <div class="float-child">
+                    <span><v-select class="side" outlined label="Heures" :items="hourList" v-model="hour3Selected"></v-select></span>
+                </div>
+                <div class="float-child">
+                    <span><v-select class="side" outlined label="Minutes" :items="minuteList" v-model="minute3Selected"></v-select></span>
+                </div>
+            </div>
+        </div>
+        <div class="elem">
+            <div class="float-container">
+                <div class="float-child">
+                    <v-btn rounded outlined color="primary">oui</v-btn>
+                </div>
+                <div class="float-child">
+                    <v-btn rounded color="primary"><span v-bind:style="{ color: '#424242' }">non</span></v-btn>
+                </div>
+            </div>
+            <div class="float-container">
+                <div class="float-child">
+                    <v-btn rounded color="primary"><span v-bind:style="{ color: '#424242' }">oui</span></v-btn>
+                </div>
+                <div class="float-child">
+                    <v-btn rounded outlined color="primary">NON</v-btn>
+                </div>
+            </div>
+        </div>
+        <div class="elem">
+            <div class="float-child">
+                <v-btn rounded color="primary"><span v-bind:style="{ color: '#424242' }">ENVOYER</span></v-btn>
+            </div>
+        </div>
+        <div class="elem">
+            <div class="float-child">
+                <v-btn rounded color="primary"><span v-bind:style="{ color: '#424242' }">PRECEDENT</span></v-btn>
+            </div>
+        </div>
+    </v-app>
+</template>
+
+</html>
